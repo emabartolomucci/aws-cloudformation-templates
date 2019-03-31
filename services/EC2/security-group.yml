@@ -1,0 +1,18 @@
+##########################################################################################################
+##
+##  Documentation:
+##  https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html
+##
+##  Required properties:
+##  - GroupDescription
+##  - VpcId (for VPC security groups without a default VPC)
+##
+##########################################################################################################
+
+AWSTemplateFormatVersion: '2010-09-09'
+
+Resources:
+  EC2SecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: A sample Security Group for EC2 resources
