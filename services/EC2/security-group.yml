@@ -9,6 +9,14 @@
 ##
 ##########################################################################################################
 
+##########################################################################################################
+##
+##  The following code creates a new EC2 Security Group. The name for the group is not specified, so 
+##  CloudFormation will name it following the structure <STACK_NAME>-EC2SecurityGroup-<STACK_ID>
+## (for instance "MyStack-EC2SecurityGroup-1E61QG48YRP8O").
+##
+##########################################################################################################
+
 AWSTemplateFormatVersion: '2010-09-09'
 
 Resources:
