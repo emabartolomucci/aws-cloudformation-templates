@@ -1,0 +1,40 @@
+##########################################################################################################
+##
+##  Documentation:
+##  https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html
+##
+##  Required properties:
+##  - GroupDescription
+##  - VpcId (for VPC security groups without a default VPC)
+##
+##########################################################################################################
+
+##########################################################################################################
+##
+##  The following code creates a new EC2 Security Group with the name specified in the parameter and
+##  one tag
+##
+##########################################################################################################
+
+AWSTemplateFormatVersion: '2010-09-09'
+
+Parameters:
+  SecurityGroupName:
+    Type: String
+    Default: My Security Group
+    Description: Enter a name for the Security Group.
+
+Resources:
+  EC2SecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: !Ref SecurityGroupName
+      GroupDescription: A sample Security Group for EC2 resources.
+      Tags:
+        -
+          Key: "mytag"
+          Value: !Join
+            - '-'
+            -  - ec2securitygroup
+               - !Ref AWS::Region
+               - !Ref AWS::StackName
