@@ -11,15 +11,21 @@
 
 ##########################################################################################################
 ##
-##  The following code creates a new EC2 Security Group with a specific name.
+##  The following code creates a new EC2 Security Group with the name specified in the parameter.
 ##
 ##########################################################################################################
 
 AWSTemplateFormatVersion: '2010-09-09'
 
+Parameters:
+  SecurityGroupName:
+    Type: String
+    Default: My Security Group
+    Description: Enter a name for the Security Group.
+
 Resources:
   EC2SecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupName: My Security Group
-      GroupDescription: A sample Security Group for EC2 resources
+      GroupName: !Ref SecurityGroupName
+      GroupDescription: A sample Security Group for EC2 resources.
