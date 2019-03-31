@@ -11,8 +11,7 @@
 
 ##########################################################################################################
 ##
-##  The following code creates a new EC2 Security Group with the name specified in the parameter and
-##  one tag
+##  Create a new EC2 Security Group with the name specified in the parameter and one tag.
 ##
 ##########################################################################################################
 

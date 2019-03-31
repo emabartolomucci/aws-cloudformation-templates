@@ -11,8 +11,8 @@
 
 ##########################################################################################################
 ##
-##  The following code creates a new EC2 Security Group with the name specified in the parameter, two
-##  ingress rules and one egress rule. Since egress rules are specified, the "VpcId" property is required.
+##  Create a new EC2 Security Group in the VPC specified in the parameter, two ingress rules and one 
+##  egress rule. Since at least one egress rule is specified, the "VpcId" property is required.
 ##
 ##########################################################################################################
 
