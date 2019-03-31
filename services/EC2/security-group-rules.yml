@@ -1,0 +1,48 @@
+##########################################################################################################
+##
+##  Documentation:
+##  https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html
+##
+##  Required properties:
+##  - GroupDescription
+##  - VpcId (for VPC security groups without a default VPC)
+##
+##########################################################################################################
+
+##########################################################################################################
+##
+##  The following code creates a new EC2 Security Group with the name specified in the parameter, two
+##  ingress rules and one egress rule. Since egress rules are specified, the "VpcId" property is required.
+##
+##########################################################################################################
+
+AWSTemplateFormatVersion: '2010-09-09'
+
+Parameters:
+  SecurityGroupName:
+    Type: String
+    Default: My Security Group
+    Description: Enter a name for the Security Group.
+  VPCID:
+    Type: AWS::EC2::VPC::Id
+    Description: Enter an existing VPC to create the Security Group in.
+
+Resources:
+  EC2SecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: !Ref SecurityGroupName
+      GroupDescription: A sample Security Group for EC2 resources.
+      VpcId: !Ref VPCID
+      SecurityGroupIngress:
+      - IpProtocol: tcp
+        FromPort: 80
+        ToPort: 80
+        CidrIp: 0.0.0.0/0
+      - IpProtocol: tcp
+        FromPort: 443
+        ToPort: 443
+        CidrIp: 0.0.0.0/0
+      SecurityGroupEgress:
+      - IpProtocol: '-1'
+        CidrIp: 0.0.0.0/0
